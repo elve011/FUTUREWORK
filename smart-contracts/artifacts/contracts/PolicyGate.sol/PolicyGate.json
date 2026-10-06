@@ -1,0 +1,190 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PolicyGate",
+  "sourceName": "contracts/PolicyGate.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AlreadyReleased",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotOwner",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "ReleaseAllowed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "failedMask",
+          "type": "uint8"
+        }
+      ],
+      "name": "ReleaseBlocked",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "milestoneCompleted",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "evidenceValid",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "clientApproved",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "conditionsSatisfied",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "riskAllowed",
+          "type": "bool"
+        }
+      ],
+      "name": "evaluate",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "allowed",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint8",
+          "name": "failedMask",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bool",
+          "name": "milestoneCompleted",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "evidenceValid",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "clientApproved",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "conditionsSatisfied",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "riskAllowed",
+          "type": "bool"
+        }
+      ],
+      "name": "release",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "released",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60a060405234801561001057600080fd5b50336080526080516103b0610036600039600081816056015261015501526103b06000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80638da5cb5b14610051578063a6d68ecd14610095578063b0faa0b6146100c8578063c3fc00e6146100f4575b600080fd5b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b6100b86100a336600461027a565b60006020819052908152604090205460ff1681565b604051901515815260200161008c565b6100db6100d63660046102a8565b610107565b60408051921515835260ff90911660208301520161008c565b6100b861010236600461030d565b610148565b60008086610113576001175b8561011c576002175b84610125576004175b8361012e576008175b82610137576010175b60ff81161597909650945050505050565b6000336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610193576040516330cd747160e01b815260040160405180910390fd5b60008781526020819052604090205460ff16156101ca57604051633da4d47160e01b81526004810188905260240160405180910390fd5b6000806101da8888888888610107565b91509150816102265760405160ff8216815289907ffb105481111c0cbeff0b8436876cb8c35c0bb79eaf98d92f37c93300b5e504049060200160405180910390a2600092505050610270565b600089815260208190526040808220805460ff191660011790555133918b917f5951b8f11ae62862089cf627c8109a72adad0b5d889792e057c331ff2c6daadc9190a36001925050505b9695505050505050565b60006020828403121561028c57600080fd5b5035919050565b803580151581146102a357600080fd5b919050565b600080600080600060a086880312156102c057600080fd5b6102c986610293565b94506102d760208701610293565b93506102e560408701610293565b92506102f360608701610293565b915061030160808701610293565b90509295509295909350565b60008060008060008060c0878903121561032657600080fd5b8635955061033660208801610293565b945061034460408801610293565b935061035260608801610293565b925061036060808801610293565b915061036e60a08801610293565b9050929550929550929556fea2646970667358221220a37779e24f6b8df775b72ce22c6463d6b472ab8f78bc3af3e1749da3b34c3fbe64736f6c63430008180033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80638da5cb5b14610051578063a6d68ecd14610095578063b0faa0b6146100c8578063c3fc00e6146100f4575b600080fd5b6100787f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020015b60405180910390f35b6100b86100a336600461027a565b60006020819052908152604090205460ff1681565b604051901515815260200161008c565b6100db6100d63660046102a8565b610107565b60408051921515835260ff90911660208301520161008c565b6100b861010236600461030d565b610148565b60008086610113576001175b8561011c576002175b84610125576004175b8361012e576008175b82610137576010175b60ff81161597909650945050505050565b6000336001600160a01b037f00000000000000000000000000000000000000000000000000000000000000001614610193576040516330cd747160e01b815260040160405180910390fd5b60008781526020819052604090205460ff16156101ca57604051633da4d47160e01b81526004810188905260240160405180910390fd5b6000806101da8888888888610107565b91509150816102265760405160ff8216815289907ffb105481111c0cbeff0b8436876cb8c35c0bb79eaf98d92f37c93300b5e504049060200160405180910390a2600092505050610270565b600089815260208190526040808220805460ff191660011790555133918b917f5951b8f11ae62862089cf627c8109a72adad0b5d889792e057c331ff2c6daadc9190a36001925050505b9695505050505050565b60006020828403121561028c57600080fd5b5035919050565b803580151581146102a357600080fd5b919050565b600080600080600060a086880312156102c057600080fd5b6102c986610293565b94506102d760208701610293565b93506102e560408701610293565b92506102f360608701610293565b915061030160808701610293565b90509295509295909350565b60008060008060008060c0878903121561032657600080fd5b8635955061033660208801610293565b945061034460408801610293565b935061035260608801610293565b925061036060808801610293565b915061036e60a08801610293565b9050929550929550929556fea2646970667358221220a37779e24f6b8df775b72ce22c6463d6b472ab8f78bc3af3e1749da3b34c3fbe64736f6c63430008180033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
