@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #060c1b;
+  --foreground: #e7eefb;
+  --panel: #0c1630;
+  --panel-raised: #0f1c3d;
+  --line: #1b2c55;
+  --muted: #8b9bc0;
+  --blue: #3b82f6;
+  --green: #22c55e;
+  --orange: #f59e0b;
+  --purple: #8b5cf6;
+  --red: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background: radial-gradient(1200px 600px at 70% -10%, #12214a 0, var(--background) 60%) fixed;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+::selection {
+  color: #fff;
+  background: var(--blue);
+}
+
+:focus-visible {
+  outline: 2px solid #7db2ff;
+  outline-offset: 3px;
+}
+
+* {
+  scrollbar-color: #29415f var(--background);
+  scrollbar-width: thin;
+}
+
+main.min-h-screen {
+  background: transparent;
+}
+
+main aside {
+  border-color: var(--line);
+  background: rgb(7 13 30 / 88%);
+}
+
+main aside nav a {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--muted);
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+main aside nav a:hover {
+  color: var(--foreground);
+  background: var(--panel);
+  text-decoration: none;
+}
+
+main aside nav a.border-cyan-300\/15 {
+  color: #fff;
+  border-color: #27407e;
+  background: linear-gradient(90deg, rgb(59 130 246 / 25%), rgb(139 92 246 / 12%));
+}
+
+main header {
+  border-color: var(--line);
+  background: rgb(7 13 30 / 78%);
+  backdrop-filter: blur(16px);
+}
+
+main h1,
+main h2 {
+  color: var(--foreground);
+}
+
+main section.rounded-xl {
+  border-color: var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel-raised), var(--panel));
+  box-shadow: 0 12px 28px rgb(0 0 0 / 12%);
+}
+
+main section.rounded-xl .rounded-lg.border,
+main section.rounded-xl .min-w-0.rounded-lg.border {
+  border-color: var(--line);
+  background-color: rgb(6 12 27 / 62%);
+}
+
+main .text-slate-500,
+main .text-slate-400 {
+  color: var(--muted);
+}
+
+main [class~="text-cyan-300"],
+main [class~="text-cyan-200"],
+main [class~="text-cyan-100"] {
+  color: #9ac2ff;
+}
+
+main button[class~="bg-cyan-400"] {
+  border: 1px solid #426bd1;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #2f7bf5, #7b4dff);
+  transition: filter 150ms ease, transform 150ms ease;
+}
+
+main button[class~="bg-cyan-400"]:hover:not(:disabled) {
+  filter: brightness(1.12);
+  background: linear-gradient(90deg, #2f7bf5, #7b4dff);
+  transform: translateY(-1px);
+}
+
+main button[class~="bg-cyan-300/10"] {
+  border-color: #2b4488;
+  color: #c8d9ff;
+  background: #102050;
+}
+
+main button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+main input,
+main select,
+main textarea {
+  border-color: var(--line);
+  border-radius: 8px;
+  color: var(--foreground);
+  background: #0a1430;
+}
+
+main input::placeholder,
+main textarea::placeholder {
+  color: #7182a7;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+main th,
+main td {
+  border-color: #14234a;
+}
+
+main a:not([class~="text-white"]) {
+  color: #7db2ff;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  main > div.flex {
+    flex-direction: column;
+  }
+
+  main > div.flex > aside {
+    position: static;
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  main aside nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  main aside nav a {
+    padding: 8px 10px;
+  }
+
+  main aside p.mt-auto {
+    display: none;
+  }
+}

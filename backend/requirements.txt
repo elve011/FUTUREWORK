@@ -1,0 +1,6 @@
+Django>=5.2,<5.3
+djangorestframework>=3.16,<4
+psycopg[binary]>=3.2,<4
+python-dotenv>=1.0,<2
+django-cors-headers>=4.7,<5
+hiero-sdk-python==0.2.10

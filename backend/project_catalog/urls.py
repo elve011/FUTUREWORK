@@ -1,0 +1,100 @@
+from django.urls import path
+
+from .views import (
+    HederaTransactionsView,
+    MilestoneStatusView,
+    PlannerDeadlinesView,
+    PlannerPlanView,
+    ProjectContractView,
+    ProjectDetailView,
+    ProjectListCreateView,
+    ProjectMilestonesView,
+    ProjectPlanHistoryView,
+    ProjectTokenAssociationView,
+    ProjectTokenView,
+    ProjectTokenizeView,
+    ProjectTokenReleaseConfirmationView,
+    ProjectWorkUnitAllocationView,
+    WorkAgreementView,
+    WorkAgreementHistoryView,
+)
+
+
+urlpatterns = [
+    path("projects", ProjectListCreateView.as_view(), name="project-list-create"),
+    path(
+        "projects/<str:project_id>",
+        ProjectDetailView.as_view(),
+        name="project-detail",
+    ),
+    path(
+        "projects/<str:project_id>/agreement",
+        WorkAgreementView.as_view(),
+        name="project-agreement",
+    ),
+    path(
+        "projects/<str:project_id>/agreements/history",
+        WorkAgreementHistoryView.as_view(),
+        name="project-agreement-history",
+    ),
+    path(
+        "projects/<str:project_id>/milestones",
+        ProjectMilestonesView.as_view(),
+        name="project-milestones",
+    ),
+    path(
+        "projects/<str:project_id>/milestones/history",
+        ProjectPlanHistoryView.as_view(),
+        name="project-plan-history",
+    ),
+    path(
+        "projects/<str:project_id>/milestones/<int:milestone_id>/status",
+        MilestoneStatusView.as_view(),
+        name="milestone-status",
+    ),
+    path(
+        "projects/<str:project_id>/planner/plan",
+        PlannerPlanView.as_view(),
+        name="project-planner-plan",
+    ),
+    path(
+        "projects/<str:project_id>/planner/deadlines",
+        PlannerDeadlinesView.as_view(),
+        name="project-planner-deadlines",
+    ),
+    path(
+        "projects/<str:project_id>/tokenize",
+        ProjectTokenizeView.as_view(),
+        name="project-tokenize",
+    ),
+    path(
+        "projects/<str:project_id>/token",
+        ProjectTokenView.as_view(),
+        name="project-token",
+    ),
+    path(
+        "projects/<str:project_id>/token/association",
+        ProjectTokenAssociationView.as_view(),
+        name="project-token-association",
+    ),
+    path(
+        "projects/<str:project_id>/token/allocate",
+        ProjectWorkUnitAllocationView.as_view(),
+        name="project-token-allocate",
+    ),
+    path(
+        "projects/<str:project_id>/token/confirm-release",
+        ProjectTokenReleaseConfirmationView.as_view(),
+        name="project-token-confirm-release",
+    ),
+    path(
+        "projects/<str:project_id>/hedera",
+        HederaTransactionsView.as_view(),
+        name="project-hedera-transactions",
+    ),
+    path(
+        "projects/<str:project_id>/contract",
+        ProjectContractView.as_view(),
+        name="project-contract",
+    ),
+]
