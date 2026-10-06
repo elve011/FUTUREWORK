@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-bg text-slate-200 antialiased;
+  font-family: ui-sans-serif, Inter, "Segoe UI", system-ui, sans-serif;
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(59,130,246,.14), transparent 60%),
+                    radial-gradient(700px 400px at 0% 30%, rgba(139,92,246,.07), transparent 60%);
+  background-attachment: fixed;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #16233F; border-radius: 8px; }

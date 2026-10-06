@@ -1,0 +1,9 @@
+.env
+.env.local
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+db.sqlite3
+.next/
+.pytest_cache/

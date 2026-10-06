@@ -1,0 +1,6 @@
+{
+  "name": "fw-hcs-bridge",
+  "private": true,
+  "type": "module",
+  "dependencies": { "@hashgraph/sdk": "^2.81.0" }
+}

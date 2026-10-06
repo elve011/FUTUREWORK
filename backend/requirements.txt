@@ -4,3 +4,8 @@ psycopg[binary]>=3.2,<4
 python-dotenv>=1.0,<2
 django-cors-headers>=4.7,<5
 hiero-sdk-python==0.2.10
+dj-database-url>=2.1
+requests>=2.31
+langgraph>=0.2
+pytest>=8
+pytest-django>=4.8

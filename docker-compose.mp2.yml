@@ -1,0 +1,21 @@
+# Dev 2 module, standalone:  docker compose -f docker-compose.mp2.yml up
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: fw
+      POSTGRES_PASSWORD: fw
+      POSTGRES_DB: futurework
+    volumes:
+      - ./docker/initdb:/docker-entrypoint-initdb.d
+    ports: ["5432:5432"]
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgres://fw:fw@db:5432/futurework
+      DB_SCHEMA: fw_evidence
+    command: sh -c "npm --prefix /app/hcs_bridge install --silent && python manage.py migrate && python manage.py runserver 0.0.0.0:8002"
+    volumes: [".:/app"]
+    ports: ["8002:8002"]
+    depends_on: [db]
