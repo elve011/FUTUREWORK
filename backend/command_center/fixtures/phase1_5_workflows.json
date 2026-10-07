@@ -1,0 +1,118 @@
+{
+  "provenance": "TEST_ONLY_SYNTHETIC_NOT_GITHUB_NOT_HEDERA",
+  "contract_version": "dev4-local/1.0",
+  "scenarios": {
+    "allow": {
+      "project_id": "LOCAL-TEST-ALLOW",
+      "correlation_id": "wf-allow-001",
+      "events": [
+        {
+          "event_id": "fixture-allow-engagement",
+          "event_type": "ENGAGEMENT_CREATED",
+          "payload": {
+            "agreement_id": "agreement-allow-001",
+            "title": "Mini application test",
+            "total_hours": 100,
+            "total_work_units": 100,
+            "start_date": "2026-10-01",
+            "target_deadline": "2026-11-30"
+          }
+        },
+        {
+          "event_id": "fixture-allow-evidence",
+          "event_type": "EVIDENCE_REVIEW_REQUESTED",
+          "payload": {
+            "evidence_id": "evidence-allow-001",
+            "work_id": "agreement-allow-001-backend",
+            "contributor_id": "emna-abdelli",
+            "commits": [{"sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "author_id": "emna-abdelli"}],
+            "pull_requests": [{"number": 17, "author_id": "emna-abdelli", "state": "MERGED", "commit_shas": ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"]}],
+            "reviews": [{"pull_request_number": 17, "reviewer_id": "independent-reviewer", "state": "APPROVED"}],
+            "ci_status": "SUCCESS"
+          }
+        },
+        {
+          "event_id": "fixture-allow-settlement-request",
+          "event_type": "SETTLEMENT_REQUESTED",
+          "payload": {"settlement_id": "TEST-ONLY-ALLOW-001"}
+        },
+        {
+          "event_id": "fixture-allow-policy",
+          "event_type": "POLICY_EVALUATION_REQUESTED",
+          "payload": {
+            "evaluation_id": "policy-allow-001",
+            "settlement_id": "TEST-ONLY-ALLOW-001",
+            "milestone_id": "agreement-allow-001-backend",
+            "planner_event_id": "fixture-allow-engagement",
+            "milestone_complete": true,
+            "evidence_event_id": "fixture-allow-evidence",
+            "client_approved": true,
+            "conditions_met": true,
+            "risk_level": "LOW",
+            "source_refs": ["fixture-allow-evidence"]
+          }
+        },
+        {
+          "event_id": "fixture-allow-submit",
+          "event_type": "SETTLEMENT_UPDATED",
+          "payload": {
+            "settlement_id": "TEST-ONLY-ALLOW-001",
+            "status": "SUBMITTED",
+            "transaction_id": "TEST-ONLY-0.0.101@1.2",
+            "network": "testnet"
+          }
+        }
+      ]
+    },
+    "block_ci_failure": {
+      "project_id": "LOCAL-TEST-BLOCK",
+      "correlation_id": "wf-block-001",
+      "events": [
+        {
+          "event_id": "fixture-block-engagement",
+          "event_type": "ENGAGEMENT_CREATED",
+          "payload": {
+            "agreement_id": "agreement-block-001",
+            "title": "Synthetic blocked workflow",
+            "total_hours": 40,
+            "total_work_units": 40
+          }
+        },
+        {
+          "event_id": "fixture-block-evidence",
+          "event_type": "EVIDENCE_REVIEW_REQUESTED",
+          "payload": {
+            "evidence_id": "evidence-block-001",
+            "work_id": "agreement-block-001-backend",
+            "contributor_id": "emna-abdelli",
+            "commits": [{"sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "author_id": "emna-abdelli"}],
+            "pull_requests": [{"number": 18, "author_id": "emna-abdelli", "state": "MERGED", "commit_shas": ["bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"]}],
+            "reviews": [{"pull_request_number": 18, "reviewer_id": "independent-reviewer", "state": "APPROVED"}],
+            "ci_status": "FAILURE"
+          }
+        },
+        {
+          "event_id": "fixture-block-settlement-request",
+          "event_type": "SETTLEMENT_REQUESTED",
+          "payload": {"settlement_id": "TEST-ONLY-BLOCK-001"}
+        },
+        {
+          "event_id": "fixture-block-policy",
+          "event_type": "POLICY_EVALUATION_REQUESTED",
+          "payload": {
+            "evaluation_id": "policy-block-001",
+            "settlement_id": "TEST-ONLY-BLOCK-001",
+            "milestone_id": "agreement-block-001-backend",
+            "planner_event_id": "fixture-block-engagement",
+            "milestone_complete": true,
+            "evidence_event_id": "fixture-block-evidence",
+            "client_approved": true,
+            "conditions_met": true,
+            "risk_level": "LOW",
+            "source_refs": ["fixture-block-evidence"]
+          }
+        }
+      ]
+    }
+  }
+}

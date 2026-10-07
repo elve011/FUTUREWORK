@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://futurework.local/schemas/v1/system-event.schema.json",
+  "title": "FUTUREWORK system event",
+  "description": "Événement amont reçu par l'orchestrateur Dev 4. Le trace_id est attribué par Dev 4 après acceptation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "project_id",
+    "occurred_at",
+    "source",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "minLength": 1, "maxLength": 24, "default": "1.0", "description": "Optional while legacy producers migrate; omitted means 1.0." },
+    "producer_id": { "type": "string", "maxLength": 128, "description": "Optional legacy envelope field. In authenticated mode it must match X-Producer-ID." },
+    "event_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "ENGAGEMENT_CREATED",
+        "WORK_CREATED",
+        "EVIDENCE_REVIEW_REQUESTED",
+        "WORK_UNIT_COMPLETED",
+        "EVIDENCE_SUBMITTED",
+        "EVIDENCE_VERIFIED",
+        "MILESTONE_COMPLETED",
+        "POLICY_DECIDED",
+        "POLICY_EVALUATION_REQUESTED",
+        "SETTLEMENT_REQUESTED",
+        "SETTLEMENT_UPDATED",
+        "HEDERA_TRANSACTION_OBSERVED",
+        "AGENT_STATUS_CHANGED",
+        "SYSTEM_ALERT_RAISED",
+        "MILESTONE_DELAYED",
+        "EVIDENCE_MISSING",
+        "HIGH_RISK",
+        "TRANSACTION_FAILED",
+        "AGENT_BLOCKED",
+        "HEDERA_ERROR"
+      ]
+    },
+    "project_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "milestone_id": { "type": ["string", "null"], "maxLength": 128 },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "payload": { "type": "object" },
+    "correlation_id": { "type": ["string", "null"], "maxLength": 128 }
+  }
+}

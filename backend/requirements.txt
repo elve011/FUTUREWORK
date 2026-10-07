@@ -1,11 +1,13 @@
 Django>=5.2,<5.3
-djangorestframework>=3.16,<4
+djangorestframework>=3.16,<3.17
 psycopg[binary]>=3.2,<4
 python-dotenv>=1.0,<2
 django-cors-headers>=4.7,<5
-hiero-sdk-python==0.2.10
+hiero-sdk-python>=0.2.10,<1
 dj-database-url>=2.1
 requests>=2.31
-langgraph>=0.2
+langgraph>=1.0,<2.0
+inflection>=0.5.1,<1
+uritemplate>=4.1,<5
 pytest>=8
 pytest-django>=4.8

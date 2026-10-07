@@ -1,0 +1,42 @@
+{
+  "catalog_status": "LOCAL_DEMO_ONLY_PENDING_SHARED_API_CONTRACTS_CONFIRMATION",
+  "project_id": "FW-DEMO-001",
+  "events": [
+    {
+      "event_id": "demo-work-001",
+      "event_type": "WORK_CREATED",
+      "project_id": "FW-DEMO-001",
+      "occurred_at": "2026-10-01T10:02:00Z",
+      "source": "dev4-demo-fixture",
+      "payload": {"work_unit_id": "WU-064", "title": "Implement settlement monitoring"},
+      "expected_agent": "planner"
+    },
+    {
+      "event_id": "demo-evidence-001",
+      "event_type": "EVIDENCE_VERIFIED",
+      "project_id": "FW-DEMO-001",
+      "occurred_at": "2026-10-01T10:03:00Z",
+      "source": "dev4-demo-fixture",
+      "payload": {"evidence_id": "EV-009", "verification": "PASS"},
+      "expected_agent": "evidence"
+    },
+    {
+      "event_id": "demo-policy-001",
+      "event_type": "POLICY_DECIDED",
+      "project_id": "FW-DEMO-001",
+      "occurred_at": "2026-10-01T10:04:00Z",
+      "source": "dev4-demo-fixture",
+      "payload": {"decision": "HUMAN_REVIEW", "reason_code": "DEMO_APPROVAL_REQUIRED"},
+      "expected_agent": "risk"
+    },
+    {
+      "event_id": "demo-settlement-001",
+      "event_type": "SETTLEMENT_UPDATED",
+      "project_id": "FW-DEMO-001",
+      "occurred_at": "2026-10-01T10:05:00Z",
+      "source": "dev4-demo-fixture",
+      "payload": {"transaction_id": "0.0.1002@2026-10-01T10:01:00Z", "status": "PENDING"},
+      "expected_agent": "settlement"
+    }
+  ]
+}

@@ -1,24 +1,25 @@
+# Environment / secrets
 .env
 .env.local
-.venv/
-node_modules/
-__pycache__/
-*.pyc
-db.sqlite3
-.next/
-.pytest_cache/
 
-.env
-*.pyc
-__pycache__/
-node_modules/
-
+# Python virtual environments
 .venv/
 venv/
+
+# Python cache / bytecode
 __pycache__/
-*.pyc
-db.sqlite3
+*.py[cod]
+
+# Node
 node_modules/
-.env
+.next/
+
+# Local database
+db.sqlite3
+
+# Test / tooling cache
+.pytest_cache/
+
+# Smart contract build artifacts
 smart-contracts/artifacts/
 smart-contracts/cache/

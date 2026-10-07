@@ -1,0 +1,54 @@
+{
+  "project_id": "FW-DEMO-001",
+  "network": "testnet",
+  "activity": [
+    {
+      "id": "hcs-message-demo-001",
+      "kind": "HCS_MESSAGE",
+      "topic_id": "0.0.1234567",
+      "consensus_timestamp": "2026-10-01T09:58:00Z",
+      "summary": "Milestone evidence hash recorded",
+      "hashscan_url": "https://hashscan.io/testnet/topic/0.0.1234567"
+    },
+    {
+      "id": "hts-transfer-demo-001",
+      "kind": "HTS_TRANSFER",
+      "token_id": "0.0.7654321",
+      "consensus_timestamp": "2026-10-01T09:59:00Z",
+      "summary": "Demo token transfer observed",
+      "hashscan_url": "https://hashscan.io/testnet/token/0.0.7654321"
+    },
+    {
+      "id": "contract-call-demo-001",
+      "kind": "CONTRACT_CALL",
+      "contract_id": "0.0.7654000",
+      "consensus_timestamp": "2026-10-01T10:00:00Z",
+      "summary": "Settlement contract event observed",
+      "hashscan_url": "https://hashscan.io/testnet/contract/0.0.7654000"
+    },
+    {
+      "id": "scheduled-tx-demo-001",
+      "kind": "SCHEDULED_TRANSACTION",
+      "scheduled_transaction_id": "0.0.7654999",
+      "consensus_timestamp": "2026-10-01T10:01:00Z",
+      "summary": "Scheduled settlement is awaiting execution",
+      "hashscan_url": "https://hashscan.io/testnet/schedule/0.0.7654999"
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "0.0.1001@2026-10-01T09:59:00Z",
+      "kind": "TOKEN_TRANSFER",
+      "status": "SUCCESS",
+      "consensus_timestamp": "2026-10-01T09:59:00Z",
+      "hashscan_url": "https://hashscan.io/testnet/transaction/0.0.1001-2026-10-01T09:59:00Z"
+    },
+    {
+      "transaction_id": "0.0.1002@2026-10-01T10:01:00Z",
+      "kind": "SCHEDULED_TRANSFER",
+      "status": "PENDING",
+      "consensus_timestamp": null,
+      "hashscan_url": "https://hashscan.io/testnet/transaction/0.0.1002-2026-10-01T10:01:00Z"
+    }
+  ]
+}

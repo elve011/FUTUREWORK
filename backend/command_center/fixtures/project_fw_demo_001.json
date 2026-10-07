@@ -1,0 +1,12 @@
+{
+  "project_id": "FW-DEMO-001",
+  "title": "Website Development for ABC Corp",
+  "status": "IN_PROGRESS",
+  "progress_percent": 64,
+  "units": {"completed": 64, "total": 100},
+  "milestones": {"completed": 3, "total": 5},
+  "evidence": {"submitted": 12, "verified": 9, "missing": 1},
+  "risk": {"level": "LOW", "open_items": 1},
+  "settlements": {"confirmed": 1, "pending": 1, "failed": 0},
+  "updated_at": "2026-10-01T10:00:00Z"
+}
